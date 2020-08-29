@@ -23,9 +23,10 @@ def MovieSorting (list1, parameter):
     elif parameter == "COUNT":
         datos = "vote_count"
     
+    count = 1
     iter = listiterator.newIterator(parameter)
     while listiterator.hasNext(iter):
         c = listiterator.next(iter)
-        if c["director_name"] == director:
-            lt.addFirst(casting_por_director, c)    
+        tup = []
+
 
