@@ -1,9 +1,6 @@
 {
-<<<<<<< HEAD
-    "python.pythonPath": "C:\\Users\\esteb\\AppData\\Local\\Programs\\Python\\Python37\\python.exe"
-=======
+    "python.pythonPath": "C:\\Users\\andre\\AppData\\Local\\Programs\\Python\\Python37\\python.exe",
     "python.linting.pylintEnabled": false,
     "python.linting.banditEnabled": true,
     "python.linting.enabled": true
->>>>>>> 3ab38a25ac76c42c5982c015f30b28b747538066
 }
