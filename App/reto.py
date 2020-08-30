@@ -29,10 +29,12 @@
 import config as cf
 import sys
 import csv
+import funcionreto
 
 from ADT import list as lt
 from DataStructures import listiterator as it
 from DataStructures import liststructure as lt
+
 
 from time import process_time 
 
