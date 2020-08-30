@@ -29,17 +29,13 @@
 import config as cf
 import sys
 import csv
-<<<<<<< HEAD
 import funcionreto
-=======
-import funcionreto as fr
->>>>>>> ff32df367460b3174052c53e231c10ce51b9833d
 
 from ADT import list as lt
 from DataStructures import listiterator as it
 from DataStructures import liststructure as lt
 from Sorting import config as cfdos 
-
+import F3y5
 
 from time import process_time 
 
@@ -121,8 +117,11 @@ def main():
             elif int(inputs[0])==4: #opcion 4
                 pass
 
-            elif int(inputs[0])==3: #opcion 5
-                pass
+            elif int(inputs[0])==5: #opcion 5
+
+                genero = input('inserte el género de su interes: ')
+                resultado = F3y5.entender_genero_peliculas(genero)
+                print(resultado)
 
             elif int(inputs[0])==4: #opcion 6
                 pass
