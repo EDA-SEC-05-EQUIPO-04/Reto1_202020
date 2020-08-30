@@ -42,7 +42,6 @@ def MovieSorting (list1, parameter, lessfunction):
     n = lt.size(mvlst)
     h = 1
 
-        
     while h < n/3:          
         h = 3*h + 1
     while (h >= 1):
@@ -54,6 +53,14 @@ def MovieSorting (list1, parameter, lessfunction):
         h //=3
 
     tenbest = lt.subList(mvlst, 0, 10)
+    tenworst = lt.subList(mvlist, (lt.size(mvlst)-11), (lt.size(mvlst)-1))
 
-
-
+    print ("MEJORES:")
+    print ("PELICULA    CALIF.")
+    for i in len(tenbest):
+        print((tenbest[i]['elements'][0]),"     ",(tenbest[i]['elements'][1]))
+    
+    print ("PEORES:")
+    print ("PELICULA    CALIF.")
+    for i in len(tenworst):
+        print((tenworst[i]['elements'][0]),"     ",(tenworst[i]['elements'][1]))
