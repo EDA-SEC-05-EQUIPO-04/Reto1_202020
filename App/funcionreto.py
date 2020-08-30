@@ -1,6 +1,9 @@
 from Sorting import shellsort as shsort
 from DataStructures import listiterator as it
 from DataStructures import liststructure as lt
+from ADT import list as lt
+from Sorting import config as cfdos
+
 
 def MovieSorting (list1, parameter, lessfunction):
     """

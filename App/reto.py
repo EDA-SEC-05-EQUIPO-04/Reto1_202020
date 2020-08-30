@@ -29,10 +29,12 @@
 import config as cf
 import sys
 import csv
+import funcionreto as fr
 
 from ADT import list as lt
 from DataStructures import listiterator as it
 from DataStructures import liststructure as lt
+from Sorting import config as cfdos 
 
 from time import process_time 
 
@@ -78,10 +80,9 @@ def loadCSVFile (file, cmpfunction):
 
 
 def loadMovies ():
-    lst = loadCSVFile("theMoviesdb/movies-small.csv",compareRecordIds) 
+    lst = loadCSVFile("theMoviesdb/SmallMoviesDetailsCleaned.csv",compareRecordIds) 
     print("Datos cargados, " + str(lt.size(lst)) + " elementos cargados")
     return lst
-
 
 def main():
     """
@@ -95,17 +96,22 @@ def main():
 
     while True:
         printMenu() #imprimir el menu de opciones en consola
-        inputs =input('Seleccione una opción para continuar\n') #leer opción ingresada
+        inputs = input('Seleccione una opción para continuar\n') #leer opción ingresada
         if len(inputs)>0:
 
             if int(inputs[0])==1: #opcion 1
                 lstmovies = loadMovies()
 
             elif int(inputs[0])==2: #opcion 2
-                pass
+
+                paramet2= input("ingrese según que quiere organizar las películas: AVERAGE para calificación, y COUNT para número de votos.: ")
+                if paramet2 != str("AVERAGE") and paramet2 != str("COUNT"):
+                    print("no es posible cargar con ese parametro")
+                else:
+                    fr.MovieSorting(lstmovies, paramet2, lessfunction)
 
             elif int(inputs[0])==3: #opcion 3
-                pass
+                pass1
 
             elif int(inputs[0])==4: #opcion 4
                 pass
