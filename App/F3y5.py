@@ -121,6 +121,6 @@ promedio_vote_count = 0
 if(numero_peliculas_genero > 0):
     promedio_vote_count = suma_promedio_voto/numero_peliculas_genero
 
-#print("Peliculas dirigidas por "+ director +": " + str(peliculas['title'])) Encontrar los nombres de las peliculas
+#mostrar la lista
 print("Numero de películas asociadas al género  "+ genero + ": " + str(numero_peliculas_genero))
 print("Promedio de votación de las peliculas del género " + genero +": "+ str(promedio_vote_count))
