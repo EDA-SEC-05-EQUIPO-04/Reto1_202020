@@ -112,7 +112,9 @@ def main():
                     fr.MovieSorting(lstmovies, paramet2, lessfunction)
 
             elif int(inputs[0])==3: #opcion 3
-                pass1
+                director = input("Ingrese el director\n")
+                resultado = F3y5.conocer_a_un_director(director)
+                print(resultado)
 
             elif int(inputs[0])==4: #opcion 4
                 pass
