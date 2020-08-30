@@ -67,3 +67,62 @@ def MovieSorting (list1, parameter, lessfunction):
     print ("PELICULA    CALIF.")
     for i in len(tenworst):
         print((tenworst[i]['elements'][0]),"     ",(tenworst[i]['elements'][1]))
+
+
+def conocer_actor (casting, details):
+    peliculas_dirigidas_por_x_director = lt.newList('SINGLE_LINKED', None)
+    actor = input("Ingrese el actor:\n")
+
+    t1_start = process_time()
+
+    iter = listiterator.newIterator(casting)
+    while listiterator.hasNext(iter):
+        d = listiterator.next(iter)
+        if d["actor1_name"] == actor or d["actor2_name"] == actor or d["actor3_name"] == actor or d["actor4_name"] == actor or d["actor5_name"] == actor:        
+            lt.addFirst(peliculas_dirigidas_por_x_director, d)
+            
+
+
+    peliculas = lt.newList('SINGLE_LINKED', None)
+
+
+
+    iter1 = listiterator.newIterator(peliculas_dirigidas_por_x_director)
+    while listiterator.hasNext(iter1):
+        ide = listiterator.next(iter1)
+
+        iter2 = listiterator.newIterator(details)
+        while listiterator.hasNext(iter2):
+            p = listiterator.next(iter2)
+
+            if ide["id"] == p["id"]:
+                lt.addFirst(peliculas, p)
+                break
+        print(peliculas)
+
+    #encontrar titulos pelis
+
+    iter = listiterator.newIterator(peliculas)
+    while listiterator.hasNext(iter):
+        s = listiterator.next(iter)
+
+
+    #encontrar los datos
+
+    numero_peliculas_director = lt.size(peliculas)
+    suma_promedio_voto = 0
+    nombres_peliculas = []
+
+    iter = listiterator.newIterator(peliculas)
+    while listiterator.hasNext(iter):
+        s = listiterator.next(iter)
+        suma_promedio_voto += float(s["vote_average"])
+        print(nombres_peliculas)
+
+    promedio_pelis = 0
+    if(numero_peliculas_director > 0):
+        promedio_pelis = suma_promedio_voto/numero_peliculas_director
+
+    #print("Peliculas dirigidas por "+ director +": " + str(peliculas['title'])) Encontrar los nombres de las peliculas
+    print("Numero de películas de "+ actor + ": " + str(numero_peliculas_director))
+    print("Promedio de calificación de las peliculas del actor: " + str(promedio_pelis))

@@ -56,21 +56,21 @@ def conocer_a_un_director(director):
 
         if ide["id"] == p["id"]:
             lt.addFirst(peliculas, p)
-            break
-    print(peliculas)
+            print (p["original_title"])
+            
 
 
     #encontrar los datos
 
     numero_peliculas_director = lt.size(peliculas)
     suma_promedio_voto = 0
-    nombres_peliculas = []
+ 
 
     iter = listiterator.newIterator(peliculas)
     while listiterator.hasNext(iter):
         s = listiterator.next(iter)
         suma_promedio_voto += float(s["vote_average"])
-    print(nombres_peliculas)
+
 
     promedio_pelis = 0
     if(numero_peliculas_director > 0):
@@ -89,12 +89,8 @@ def conocer_a_un_director(director):
 #FUNCION 5
 
 
-print("1- Req 5 - Entender un género")
 
-genero = input('inserte el género de su interes: ')
-if genero != "":
-    resultado = entender_genero_peliculas(genero)
-    print(resultado)
+
 
 
 
@@ -128,6 +124,7 @@ def entender_genero_peliculas (genero):
         d = listiterator.next(iter)
         if genero in d["genres"]:
             lt.addFirst(peliculas_del_genero, d)
+            print(d["original_title"])
 
 
     numero_peliculas_genero = lt.size(peliculas_del_genero)
@@ -146,5 +143,5 @@ def entender_genero_peliculas (genero):
     #mostrar la lista
     respuesta = {}
     respuesta['Numero de películas asociadas al género '+ genero] = numero_peliculas_genero
-    respuesta["Promedio de votación de las peliculas del género "+ genero] = promedio_vote_count
+    respuesta["Promedio de votos de las peliculas del género "+ genero] = promedio_vote_count
     return respuesta

@@ -85,6 +85,12 @@ def loadMovies ():
     print("Datos cargados, " + str(lt.size(lst)) + " elementos cargados")
     return lst
 
+def loadMovieCast ():
+    lst = loadCSVFile("theMoviesdb/MoviesCastingRaw-small.csv",compareRecordIds) 
+    print("Datos cargados, " + str(lt.size(lst)) + " elementos cargados")
+    return lst
+
+
 def main():
     """
     Método principal del programa, se encarga de manejar todos los metodos adicionales creados
@@ -101,7 +107,8 @@ def main():
         if len(inputs)>0:
 
             if int(inputs[0])==1: #opcion 1
-                lstmovies = loadMovies()
+                details = loadMovies()
+                casting = loadMovieCast()
 
             elif int(inputs[0])==2: #opcion 2
 
@@ -126,11 +133,15 @@ def main():
                 print(resultado)
 
             elif int(inputs[0])==4: #opcion 6
-                pass
+                funcionreto.conocer_actor(casting, details)
 
 
             elif int(inputs[0])==0: #opcion 0, salir
                 sys.exit(0)
+            
+            else:
+                print ("resultado no vállido.")
+                
                 
 if __name__ == "__main__":
     main()
