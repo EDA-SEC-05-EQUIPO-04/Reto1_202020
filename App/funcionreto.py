@@ -1,9 +1,9 @@
 from Sorting import shellsort as shsort
-from DataStructures import listiterator as it
+from DataStructures import listiterator
 from DataStructures import liststructure as lt
 from ADT import list as lt
 from Sorting import config as cfdos
-
+from time import process_time 
 
 def MovieSorting (list1, parameter, lessfunction):
     """
@@ -85,7 +85,7 @@ def conocer_actor (casting, details):
 
     peliculas = lt.newList('SINGLE_LINKED', None)
 
-
+    directores = {}
 
     iter1 = listiterator.newIterator(peliculas_dirigidas_por_x_director)
     while listiterator.hasNext(iter1):
@@ -97,27 +97,28 @@ def conocer_actor (casting, details):
 
             if ide["id"] == p["id"]:
                 lt.addFirst(peliculas, p)
-                break
-        print(peliculas)
+                print(p["original_title"])
+                if ide["director_name"] in directores:
+                    directores[ide["director_name"]] += 1
+                else:
+                    directores[ide["director_name"]] = 1
 
-    #encontrar titulos pelis
 
-    iter = listiterator.newIterator(peliculas)
-    while listiterator.hasNext(iter):
-        s = listiterator.next(iter)
+    #encontrar directores pelis
+    maximo_colab = max(directores, key=directores.get)  
+    
 
 
     #encontrar los datos
 
     numero_peliculas_director = lt.size(peliculas)
     suma_promedio_voto = 0
-    nombres_peliculas = []
 
     iter = listiterator.newIterator(peliculas)
     while listiterator.hasNext(iter):
         s = listiterator.next(iter)
         suma_promedio_voto += float(s["vote_average"])
-        print(nombres_peliculas)
+
 
     promedio_pelis = 0
     if(numero_peliculas_director > 0):
@@ -126,3 +127,4 @@ def conocer_actor (casting, details):
     #print("Peliculas dirigidas por "+ director +": " + str(peliculas['title'])) Encontrar los nombres de las peliculas
     print("Numero de películas de "+ actor + ": " + str(numero_peliculas_director))
     print("Promedio de calificación de las peliculas del actor: " + str(promedio_pelis))
+    print("el director con mayor número de colaboraciones es: " + maximo_colab)

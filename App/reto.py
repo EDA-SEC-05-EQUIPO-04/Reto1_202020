@@ -124,7 +124,7 @@ def main():
                 print(resultado)
 
             elif int(inputs[0])==4: #opcion 4
-                pass
+                funcionreto.conocer_actor(casting, details)
 
             elif int(inputs[0])==5: #opcion 5
 
@@ -132,8 +132,8 @@ def main():
                 resultado = F3y5.entender_genero_peliculas(genero)
                 print(resultado)
 
-            elif int(inputs[0])==4: #opcion 6
-                funcionreto.conocer_actor(casting, details)
+            elif int(inputs[0])==6: #opcion 6
+                pass
 
 
             elif int(inputs[0])==0: #opcion 0, salir
@@ -141,7 +141,7 @@ def main():
             
             else:
                 print ("resultado no vállido.")
-                
+
                 
 if __name__ == "__main__":
     main()
