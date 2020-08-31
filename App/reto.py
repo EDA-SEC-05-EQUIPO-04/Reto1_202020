@@ -120,16 +120,16 @@ def main():
 
             elif int(inputs[0])==3: #opcion 3
                 director = input("Ingrese el director\n")
-                resultado = F3y5.conocer_a_un_director(director)
+                resultado = F3y5.moviesByDirector(director)
                 print(resultado)
 
             elif int(inputs[0])==4: #opcion 4
-                funcionreto.conocer_actor(casting, details)
+                funcionreto.moviesByActor(casting, details)
 
             elif int(inputs[0])==5: #opcion 5
 
-                genero = input('inserte el género de su interes: ')
-                resultado = F3y5.entender_genero_peliculas(genero)
+                genero = input('inserte el género de su interes\n')
+                resultado = F3y5.moviesByGenre(genero)
                 print(resultado)
 
             elif int(inputs[0])==6: #opcion 6

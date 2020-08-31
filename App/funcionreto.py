@@ -69,7 +69,7 @@ def MovieSorting (list1, parameter, lessfunction):
         print((tenworst[i]['elements'][0]),"     ",(tenworst[i]['elements'][1]))
 
 
-def conocer_actor (casting, details):
+def moviesByActor(casting, details):
     peliculas_dirigidas_por_x_director = lt.newList('SINGLE_LINKED', None)
     actor = input("Ingrese el actor:\n")
 
