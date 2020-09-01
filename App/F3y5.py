@@ -2,25 +2,10 @@ import config as conf
 import csv
 from ADT import list as lt
 from DataStructures import listiterator
-from time import process_time 
+from time import process_time
 
 
-#Cargar archivos
-def crear_lista(camino):
-    
-    lista = lt.newList('SINGLE_LINKED', None)
-    #casting_file = "Data/MoviesCastingRaw-small.csv"
-    # #casting_file = "Data/themoviesdb\MoviesCastingRaw-small.csv"
-    with open(camino, encoding="utf-8-sig") as csvfile:
-        reader = csv.DictReader(csvfile, delimiter=';')
-        for row in reader:
-            lt.addFirst(lista, row)
-    return lista
-
-
-
-
-def conocer_a_un_director(director):
+def moviesByDirector(director,casting,details):
     """
     Función 3
     Conocer a un director
@@ -29,9 +14,6 @@ def conocer_a_un_director(director):
     Como aficionado del cine Quiero
     conocer el trabajo de un director.
     """
-
-    casting = crear_lista("Data/themoviesdb\MoviesCastingRaw-small.csv")
-    details = crear_lista('Data/themoviesdb\SmallMoviesDetailsCleaned.csv')
 
     peliculas_dirigidas_por_x_director = lt.newList('SINGLE_LINKED', None)
     
@@ -96,7 +78,7 @@ def conocer_a_un_director(director):
 
 
 
-def entender_genero_peliculas (genero):
+def moviesByGenre(genero,casting,details):
     """
     
     Funcion 5:
@@ -113,10 +95,6 @@ def entender_genero_peliculas (genero):
     cinematográfico (genres).
 
     """
-    
-    
-    casting = crear_lista("Data/themoviesdb\MoviesCastingRaw-small.csv")
-    details = crear_lista('Data/themoviesdb\SmallMoviesDetailsCleaned.csv')
 
     peliculas_del_genero = lt.newList('SINGLE_LINKED', None)
     iter = listiterator.newIterator(details)

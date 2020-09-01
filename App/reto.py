@@ -80,6 +80,7 @@ def loadCSVFile (file, cmpfunction):
     return lst
 
 
+
 def loadMovies ():
     lst = loadCSVFile("theMoviesdb/SmallMoviesDetailsCleaned.csv",compareRecordIds) 
     print("Datos cargados, " + str(lt.size(lst)) + " elementos cargados")
@@ -90,6 +91,15 @@ def loadMovieCast ():
     print("Datos cargados, " + str(lt.size(lst)) + " elementos cargados")
     return lst
 
+#Cargar archivos
+def crear_lista(camino):
+    
+    lista = lt.newList('SINGLE_LINKED', None)
+    with open(camino, encoding="utf-8-sig") as csvfile:
+        reader = csv.DictReader(csvfile, delimiter=';')
+        for row in reader:
+            lt.addFirst(lista, row)
+    return lista
 
 def main():
     """
@@ -116,20 +126,24 @@ def main():
                 if paramet2 != str("AVERAGE") and paramet2 != str("COUNT"):
                     print("no es posible cargar con ese parametro")
                 else:
-                    fr.MovieSorting(lstmovies, paramet2, lessfunction)
+                    lstmovies = crear_lista('Data/themoviesdb\SmallMoviesDetailsCleaned.csv')
+                    funcionreto.MovieSorting(lstmovies, paramet2, lessfunction)
 
             elif int(inputs[0])==3: #opcion 3
                 director = input("Ingrese el director\n")
-                resultado = F3y5.moviesByDirector(director)
+                casting = crear_lista("Data/themoviesdb\MoviesCastingRaw-small.csv")
+                details = crear_lista('Data/themoviesdb\SmallMoviesDetailsCleaned.csv')
+                resultado = F3y5.moviesByDirector(director,casting,details)
                 print(resultado)
 
             elif int(inputs[0])==4: #opcion 4
                 funcionreto.moviesByActor(casting, details)
 
             elif int(inputs[0])==5: #opcion 5
-
+                casting = crear_lista("Data/themoviesdb\MoviesCastingRaw-small.csv")
+                details = crear_lista('Data/themoviesdb\SmallMoviesDetailsCleaned.csv')
                 genero = input('inserte el género de su interes\n')
-                resultado = F3y5.moviesByGenre(genero)
+                resultado = F3y5.moviesByGenre(genero,casting,details)
                 print(resultado)
 
             elif int(inputs[0])==6: #opcion 6
