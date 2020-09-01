@@ -5,7 +5,12 @@ from ADT import list as lt
 from Sorting import config as cfdos
 from time import process_time 
 
-def MovieSorting (list1, parameter, lessfunction):
+def less(element1, element2):
+    if int(element1['goodreads_book_id']) < int(element2['goodreads_book_id']):
+        return True
+    return False
+
+def MovieSorting (list1, parameter):
     """
     FUNCION 2:
     list1: Lista de metadatos de la película.
@@ -31,14 +36,14 @@ def MovieSorting (list1, parameter, lessfunction):
     iter = listiterator.newIterator(list1)
     while listiterator.hasNext(iter):
         c = listiterator.next(iter)
-        tup = ()
+        tup = []
         tup.append(c["original_title"])
-        tup.append(c[parameter])
+        tup.append(c[datos])
         tup.append(c["id"])
 
         lt.addLast(mvlst, tup)
 
-    iter = it.newIterator(mvlst)
+    iter = listiterator.newIterator(mvlst)
 
     #Basicamente shellsort pero adaptado
 
@@ -50,7 +55,7 @@ def MovieSorting (list1, parameter, lessfunction):
     while (h >= 1):
         for i in range (h,n):
             j = i
-            while (j>=h) and lessfunction (lt.getElement(mvlst[1],j+1),lt.getElement(mvlst[1],j-h+1)):
+            while (j>=h) and less(lt.getElement(mvlst[1],j+1),lt.getElement(mvlst[1],j-h+1)):
                 lt.exchange (mvlst, j+1, j-h+1)
                 j -=h
         h //=3

@@ -123,3 +123,12 @@ def moviesByGenre(genero,casting,details):
     respuesta['Numero de películas asociadas al género '+ genero] = numero_peliculas_genero
     respuesta["Promedio de votos de las peliculas del género "+ genero] = promedio_vote_count
     return respuesta
+
+def comparar_mayores(maximo,lista):
+    maximo
+
+
+
+
+def comparar_minimos(minimo,lista):
+

@@ -127,7 +127,7 @@ def main():
                     print("no es posible cargar con ese parametro")
                 else:
                     lstmovies = crear_lista('Data/themoviesdb\SmallMoviesDetailsCleaned.csv')
-                    funcionreto.MovieSorting(lstmovies, paramet2, lessfunction)
+                    funcionreto.MovieSorting(lstmovies, paramet2)
 
             elif int(inputs[0])==3: #opcion 3
                 director = input("Ingrese el director\n")
