@@ -1,3 +1,4 @@
+from Sorting import quicksort as qc
 import config as conf
 import csv
 from ADT import list as lt
@@ -124,11 +125,95 @@ def moviesByGenre(genero,casting,details):
     respuesta["Promedio de votos de las peliculas del género "+ genero] = promedio_vote_count
     return respuesta
 
-def comparar_mayores(maximo,lista):
-    maximo
+
+def compareRecordVotos (recordA, recordB):
+    if int(recordA["vote_count"]) == int(recordB['vote_count']):
+        return 0
+    elif int(recordA['vote_count']) > int(recordB['vote_count']):
+        return 1
+    return -1
+
+def compareRecordAverage (recordA, recordB):
+    if float(recordA["vote_average"]) == float(recordB['vote_average']):
+        return 0
+    elif float(recordA['vote_average']) > float(recordB['vote_average']):
+        return 1
+    return -1
 
 
+def crear_ranking(lst):
+    votos_ranking = qc.quickSort(lst,compareRecordVotos)
+    average_ranking = qc.quickSort(lst,compareRecordAverage)
+    return (votos_ranking,average_ranking)
+
+ 
+def crear_ranking2(details,parametro):
+    if parametro == "AVERAGE":
+        criterio = 'vote_average'
+    elif parametro == "COUNT":
+        criterio = 'vote_count'
+    respuesta = {}
+    lista_mejores = []
+    #Mejores calificaciones 
+    x = crear_ranking2_maximo(details,0,0,criterio,lista_mejores)
+    print(x)
+    respuesta[x[0]] =  x[1]
+    lista_mejores.append(x[0])
+    x2 = crear_ranking2_maximo(details,0,0,criterio,lista_mejores)
+    respuesta[x2[0]] = x2[1]
+    lista_mejores.append(x2[0])
+    x3 = crear_ranking2_maximo(details,0,0,criterio,lista_mejores)
+    respuesta[x3[0]] = x3[1]
+    lista_mejores.append(x3[0])
+    x4 = crear_ranking2_maximo(details,0,0,criterio,lista_mejores)
+    respuesta[x4[0]] = x4[1]
+    lista_mejores.append(x4[0])
+    x5 = crear_ranking2_maximo(details,0,0,criterio,lista_mejores)
+    respuesta[x5[0]] = x5[1]
+    lista_mejores.append(x5[0])
+    #Peores calificaciones
+    lista_peores = []
+    respuesta_peores = {}
+    z = crear_ranking2_minimo(details,0,0,criterio,lista_peores)
+    print(z)
+    respuesta_peores[z[0]] =  z[1]
+    lista_peores.append(x[0])
+    z2 = crear_ranking2_minimo(details,0,0,criterio,lista_peores)
+    respuesta_peores[z2[0]] = z2[1]
+    lista_peores.append(x2[0])
+    z3 = crear_ranking2_minimo(details,0,0,criterio,lista_peores)
+    respuesta_peores[z3[0]] = z3[1]
+    lista_peores.append(x3[0])
+    z4 = crear_ranking2_minimo(details,0,0,criterio,lista_peores)
+    respuesta_peores[z4[0]] = z4[1]
+    lista_peores.append(z4[0])
+    z5 = crear_ranking2_minimo(details,0,0,criterio,lista_peores)
+    respuesta_peores[z5[0]] = z5[1]
+    lista_peores.append(z5[0])
+    
+    return respuesta , respuesta_peores
 
 
-def comparar_minimos(minimo,lista):
+def crear_ranking2_maximo(details,maximo,minimo,criterio,lista):
 
+    iter = listiterator.newIterator(details)
+    while listiterator.hasNext(iter):
+        d = listiterator.next(iter)
+        if float(d[criterio]) > maximo and d['title'] not in lista:
+            maximo = float(d[criterio])
+            nombre_max = d['title']
+    print(maximo)
+    return nombre_max,maximo
+
+
+def crear_ranking2_minimo(details,maximo,minimo,criterio,lista):
+
+    iter = listiterator.newIterator(details)
+    while listiterator.hasNext(iter):
+        d = listiterator.next(iter)
+        if float(d[criterio]) < maximo and float(d[criterio]) >= minimo:
+            if d['title'] not in lista:
+                minimo = float(d[criterio])
+                nombre_min = d['title']
+    print(minimo)
+    return nombre_min , minimo
