@@ -126,10 +126,10 @@ def main():
                 if paramet2 != str("AVERAGE") and paramet2 != str("COUNT"):
                     print("no es posible cargar con ese parametro")
                 else:
-                    #lstmovies = loadMovies()
-                    #resultado = F3y5.crear_ranking(lstmovies)
                     resultado = F3y5.crear_ranking2(details,paramet2)
-                    print(resultado)
+                    print("Top-5: ", resultado[0])
+                    print("Peores 5: ", resultado[1])
+
 
             elif int(inputs[0])==3: #opcion 3
                 director = input("Ingrese el director\n")

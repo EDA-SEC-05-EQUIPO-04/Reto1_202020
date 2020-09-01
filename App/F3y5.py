@@ -156,7 +156,6 @@ def crear_ranking2(details,parametro):
     lista_mejores = []
     #Mejores calificaciones 
     x = crear_ranking2_maximo(details,0,0,criterio,lista_mejores)
-    print(x)
     respuesta[x[0]] =  x[1]
     lista_mejores.append(x[0])
     x2 = crear_ranking2_maximo(details,0,0,criterio,lista_mejores)
@@ -171,23 +170,24 @@ def crear_ranking2(details,parametro):
     x5 = crear_ranking2_maximo(details,0,0,criterio,lista_mejores)
     respuesta[x5[0]] = x5[1]
     lista_mejores.append(x5[0])
+
     #Peores calificaciones
     lista_peores = []
     respuesta_peores = {}
-    z = crear_ranking2_minimo(details,0,0,criterio,lista_peores)
+    z = crear_ranking2_minimo(details,0,10000000,criterio,lista_peores)
     print(z)
     respuesta_peores[z[0]] =  z[1]
-    lista_peores.append(x[0])
-    z2 = crear_ranking2_minimo(details,0,0,criterio,lista_peores)
+    lista_peores.append(z[0])
+    z2 = crear_ranking2_minimo(details,0,10000000,criterio,lista_peores)
     respuesta_peores[z2[0]] = z2[1]
-    lista_peores.append(x2[0])
-    z3 = crear_ranking2_minimo(details,0,0,criterio,lista_peores)
+    lista_peores.append(z2[0])
+    z3 = crear_ranking2_minimo(details,0,10000000,criterio,lista_peores)
     respuesta_peores[z3[0]] = z3[1]
-    lista_peores.append(x3[0])
-    z4 = crear_ranking2_minimo(details,0,0,criterio,lista_peores)
+    lista_peores.append(z3[0])
+    z4 = crear_ranking2_minimo(details,0,10000000,criterio,lista_peores)
     respuesta_peores[z4[0]] = z4[1]
     lista_peores.append(z4[0])
-    z5 = crear_ranking2_minimo(details,0,0,criterio,lista_peores)
+    z5 = crear_ranking2_minimo(details,0,10000000,criterio,lista_peores)
     respuesta_peores[z5[0]] = z5[1]
     lista_peores.append(z5[0])
     
@@ -211,9 +211,8 @@ def crear_ranking2_minimo(details,maximo,minimo,criterio,lista):
     iter = listiterator.newIterator(details)
     while listiterator.hasNext(iter):
         d = listiterator.next(iter)
-        if float(d[criterio]) < maximo and float(d[criterio]) >= minimo:
-            if d['title'] not in lista:
-                minimo = float(d[criterio])
-                nombre_min = d['title']
+        if float(d[criterio]) <= minimo and d['title'] not in lista:
+            minimo = float(d[criterio])
+            nombre_min = d['title']
     print(minimo)
     return nombre_min , minimo
