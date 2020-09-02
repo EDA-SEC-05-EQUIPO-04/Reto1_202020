@@ -1,0 +1,1 @@
+Parece que los archivos large estan dando resultados incorrectos. No incluidos dentro del repositorio, cambiar a small para pruebas.funciones 3 y 4 estan con small.
