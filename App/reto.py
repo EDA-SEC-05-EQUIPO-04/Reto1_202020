@@ -82,12 +82,12 @@ def loadCSVFile (file, cmpfunction):
 
 
 def loadMovies ():
-    lst = loadCSVFile('Data/themoviesdb\AllMoviesDetailsCleaned.csv',compareRecordIds) 
+    lst = loadCSVFile(('themoviesdb\AllMoviesDetailsCleaned.csv'),compareRecordIds) 
     print("Datos cargados, " + str(lt.size(lst)) + " elementos cargados")
     return lst
 
 def loadMovieCast ():
-    lst = loadCSVFile("Data/themoviesdb\AllMoviesCastingRaw.csv",compareRecordIds) 
+    lst = loadCSVFile(("themoviesdb\AllMoviesCastingRaw.csv"),compareRecordIds) 
     print("Datos cargados, " + str(lt.size(lst)) + " elementos cargados")
     return lst
 
