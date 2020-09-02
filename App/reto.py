@@ -82,12 +82,12 @@ def loadCSVFile (file, cmpfunction):
 
 
 def loadMovies ():
-    lst = loadCSVFile(('themoviesdb\AllMoviesDetailsCleaned.csv'),compareRecordIds) 
+    lst = loadCSVFile(('Data/themoviesdb\SmallMoviesDetailsCleaned.csv'),compareRecordIds) 
     print("Datos cargados, " + str(lt.size(lst)) + " elementos cargados")
     return lst
 
 def loadMovieCast ():
-    lst = loadCSVFile(("themoviesdb\AllMoviesCastingRaw.csv"),compareRecordIds) 
+    lst = loadCSVFile(("Data/themoviesdb\MoviesCastingRaw-small.csv"),compareRecordIds) 
     print("Datos cargados, " + str(lt.size(lst)) + " elementos cargados")
     return lst
 
@@ -133,6 +133,10 @@ def main():
 
             elif int(inputs[0])==3: #opcion 3
                 director = input("Ingrese el director\n")
+                ruta_casting = input("Ingrese la ruta del archivo casting: ")
+                ruta_details = input("Ingrese la ruta del archivo details: ")
+                casting = crear_lista(ruta_casting)
+                details = crear_lista(ruta_details)
                 resultado = F3y5.moviesByDirector(director,casting,details)
                 print(resultado)
 
