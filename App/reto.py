@@ -82,12 +82,12 @@ def loadCSVFile (file, cmpfunction):
 
 
 def loadMovies ():
-    lst = loadCSVFile("theMoviesdb/SmallMoviesDetailsCleaned.csv",compareRecordIds) 
+    lst = loadCSVFile('Data/themoviesdb\AllMoviesDetailsCleaned.csv',compareRecordIds) 
     print("Datos cargados, " + str(lt.size(lst)) + " elementos cargados")
     return lst
 
 def loadMovieCast ():
-    lst = loadCSVFile("theMoviesdb/MoviesCastingRaw-small.csv",compareRecordIds) 
+    lst = loadCSVFile("Data/themoviesdb\AllMoviesCastingRaw.csv",compareRecordIds) 
     print("Datos cargados, " + str(lt.size(lst)) + " elementos cargados")
     return lst
 
@@ -133,8 +133,8 @@ def main():
 
             elif int(inputs[0])==3: #opcion 3
                 director = input("Ingrese el director\n")
-                casting = crear_lista("Data/themoviesdb\MoviesCastingRaw-small.csv")
-                details = crear_lista('Data/themoviesdb\SmallMoviesDetailsCleaned.csv')
+                casting = crear_lista("Data/themoviesdb\AllMoviesCastingRaw.csv")
+                details = crear_lista('Data/themoviesdb\AllMoviesDetailsCleaned.csv')
                 resultado = F3y5.moviesByDirector(director,casting,details)
                 print(resultado)
 
@@ -142,8 +142,8 @@ def main():
                 funcionreto.moviesByActor(casting, details)
 
             elif int(inputs[0])==5: #opcion 5
-                casting = crear_lista("Data/themoviesdb\MoviesCastingRaw-small.csv")
-                details = crear_lista('Data/themoviesdb\SmallMoviesDetailsCleaned.csv')
+                casting = crear_lista("Data/themoviesdb\AllMoviesCastingRaw.csv")
+                details = crear_lista('Data/themoviesdb\AllMoviesDetailsCleaned.csv')
                 genero = input('inserte el género de su interes\n')
                 resultado = F3y5.moviesByGenre(genero,casting,details)
                 print(resultado)
@@ -154,7 +154,7 @@ def main():
                     print("no es posible cargar con ese parametro")
                 else:
                     genero = input('inserte el género de su interes\n')
-                    F3y5.mejoresgenero(details, parametro, genero)
+                    resultado = F3y5.mejoresgenero(details, parametro, genero)
                     print("Top-5: ", resultado[0])
                     print("Peores 5: ", resultado[1])
                 

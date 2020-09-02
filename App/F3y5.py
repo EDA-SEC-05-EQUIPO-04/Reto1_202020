@@ -175,7 +175,6 @@ def crear_ranking2(details,parametro):
     lista_peores = []
     respuesta_peores = {}
     z = crear_ranking2_minimo(details,0,10000000,criterio,lista_peores)
-    print(z)
     respuesta_peores[z[0]] =  z[1]
     lista_peores.append(z[0])
     z2 = crear_ranking2_minimo(details,0,10000000,criterio,lista_peores)
@@ -202,7 +201,6 @@ def crear_ranking2_maximo(details,maximo,minimo,criterio,lista):
         if float(d[criterio]) > maximo and d['title'] not in lista:
             maximo = float(d[criterio])
             nombre_max = d['title']
-    print(maximo)
     return nombre_max,maximo
 
 
@@ -214,7 +212,6 @@ def crear_ranking2_minimo(details,maximo,minimo,criterio,lista):
         if float(d[criterio]) <= minimo and d['title'] not in lista:
             minimo = float(d[criterio])
             nombre_min = d['title']
-    print(minimo)
     return nombre_min , minimo
 
 #FUNCION 6
@@ -228,5 +225,6 @@ def mejoresgenero(lista, parametro, genero):
         if genero in d["genres"]:
             lt.addFirst(peliculas_del_genero, d)
     
-    crear_ranking2(peliculas_del_genero, parametro)
+    r = crear_ranking2(peliculas_del_genero, parametro)
+    return r
         
