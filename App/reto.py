@@ -133,8 +133,6 @@ def main():
 
             elif int(inputs[0])==3: #opcion 3
                 director = input("Ingrese el director\n")
-                casting = crear_lista("Data/themoviesdb\AllMoviesCastingRaw.csv")
-                details = crear_lista('Data/themoviesdb\AllMoviesDetailsCleaned.csv')
                 resultado = F3y5.moviesByDirector(director,casting,details)
                 print(resultado)
 
@@ -142,8 +140,6 @@ def main():
                 funcionreto.moviesByActor(casting, details)
 
             elif int(inputs[0])==5: #opcion 5
-                casting = crear_lista("Data/themoviesdb\AllMoviesCastingRaw.csv")
-                details = crear_lista('Data/themoviesdb\AllMoviesDetailsCleaned.csv')
                 genero = input('inserte el género de su interes\n')
                 resultado = F3y5.moviesByGenre(genero,casting,details)
                 print(resultado)
