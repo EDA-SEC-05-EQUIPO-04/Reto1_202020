@@ -133,14 +133,22 @@ def main():
 
             elif int(inputs[0])==3: #opcion 3
                 director = input("Ingrese el director\n")
-                ruta_casting = input("Ingrese la ruta del archivo casting: ")
-                ruta_details = input("Ingrese la ruta del archivo details: ")
+                #ruta_casting = "themoviesdb\AllMoviesCastingRaw.csv"
+                #ruta_details = 'themoviesdb\AllMoviesDetailsCleaned.csv'
+                ruta_casting = "Data/themoviesdb\MoviesCastingRaw-small.csv"
+                ruta_details = "Data/themoviesdb\SmallMoviesDetailsCleaned.csv"
                 casting = crear_lista(ruta_casting)
                 details = crear_lista(ruta_details)
                 resultado = F3y5.moviesByDirector(director,casting,details)
                 print(resultado)
 
             elif int(inputs[0])==4: #opcion 4
+                #ruta_casting = "themoviesdb\AllMoviesCastingRaw.csv"
+                #ruta_details = 'themoviesdb\AllMoviesDetailsCleaned.csv'
+                ruta_casting = "Data/themoviesdb\MoviesCastingRaw-small.csv"
+                ruta_details = "Data/themoviesdb\SmallMoviesDetailsCleaned.csv"
+                casting = crear_lista(ruta_casting)
+                details = crear_lista(ruta_details)
                 funcionreto.moviesByActor(casting, details)
 
             elif int(inputs[0])==5: #opcion 5
