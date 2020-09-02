@@ -149,7 +149,15 @@ def main():
                 print(resultado)
 
             elif int(inputs[0])==6: #opcion 6
-                pass
+                parametro= input("ingrese según que quiere organizar las películas: AVERAGE para calificación, y COUNT para número de votos.: ")
+                if parametro != str("AVERAGE") and parametro != str("COUNT"):
+                    print("no es posible cargar con ese parametro")
+                else:
+                    genero = input('inserte el género de su interes\n')
+                    F3y5.mejoresgenero(details, parametro, genero)
+                    print("Top-5: ", resultado[0])
+                    print("Peores 5: ", resultado[1])
+                
 
 
             elif int(inputs[0])==0: #opcion 0, salir

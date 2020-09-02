@@ -216,3 +216,17 @@ def crear_ranking2_minimo(details,maximo,minimo,criterio,lista):
             nombre_min = d['title']
     print(minimo)
     return nombre_min , minimo
+
+#FUNCION 6
+def mejoresgenero(lista, parametro, genero):
+
+    peliculas_del_genero = lt.newList('SINGLE_LINKED', None)
+
+    iter = listiterator.newIterator(lista)
+    while listiterator.hasNext(iter):
+        d = listiterator.next(iter)
+        if genero in d["genres"]:
+            lt.addFirst(peliculas_del_genero, d)
+    
+    crear_ranking2(peliculas_del_genero, parametro)
+        
